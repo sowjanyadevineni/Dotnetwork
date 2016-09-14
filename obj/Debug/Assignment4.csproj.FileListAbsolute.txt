@@ -1,0 +1,5 @@
+D:\WorkProject\Assignment4\Assignment4\obj\Debug\Assignment4.csprojResolveAssemblyReference.cache
+D:\WorkProject\Assignment4\Assignment4\bin\Assignment4.dll
+D:\WorkProject\Assignment4\Assignment4\bin\Assignment4.pdb
+D:\WorkProject\Assignment4\Assignment4\obj\Debug\Assignment4.dll
+D:\WorkProject\Assignment4\Assignment4\obj\Debug\Assignment4.pdb

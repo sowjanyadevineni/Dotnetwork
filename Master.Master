@@ -1,0 +1,235 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="Assignment4.Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Home Work 3</title>
+    <script>
+        $('li').click(function () {
+
+            $(this).addClass('active')
+                 .siblings()
+                 .removeClass('active');
+
+        });
+
+        /*
+        
+        Inspired by Asif Aleem's work: http://www.freebiesgallery.com/responsive-website-navigation/
+        
+        Feel free to fork it and make it better, AND use it however u want, the whole functionality could, of course, have been done with jQuery alone, but I thought I'd try to do it with CSS3, to make use of media query transitions, and of course, just to practice more.
+        You can use this when changing orientation on a tablet or smart phone for example.. and of course, use ur creative minds for any more uses u can come up with :)
+        
+        Follow me on Twitter: http://twitter.com/SaraSoueidan
+        
+        */
+    </script>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+        }
+
+        /*body
+        {
+            height: 100%;
+            background-color: #444;
+        }*/
+
+        h1
+        {
+            font-size: 1em;
+            text-align: center;
+            color: #eee;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        }
+
+        .nav-container
+        {
+            width: 300px;
+            margin-top: 10px;
+            box-shadow: 0 2px 2px 2px black;
+            transition: all 0.3s linear;
+        }
+
+        .nav
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li
+        {
+            height: 50px;
+            position: relative;
+            background: linear-gradient(#292929, #242424);
+        }
+
+        a
+        {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid black;
+            text-decoration: none;
+            display: block;
+            height: 100%;
+            width: 100%;
+            line-height: 50px;
+            color: #bbb;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding-left: 25%;
+            border-left: 5px solid transparent;
+            letter-spacing: 1px;
+            transition: all 0.3s linear;
+        }
+
+        .active a
+        {
+            color: #B93632;
+            border-left: 5px solid #B93632;
+            background-color: #1B1B1B;
+            outline: 0;
+        }
+
+        li:not(.active):hover a
+        {
+            color: #eee;
+            border-left: 5px solid #FCFCFC;
+            background-color: #1B1B1B;
+        }
+
+        span[class ^= "icon"]
+        {
+            position: absolute;
+            left: 20px;
+            font-size: 1.5em;
+            transition: all 0.3s linear;
+        }
+
+        @media only screen and (max-width : 860px)
+        {
+
+            .text
+            {
+                display: none;
+            }
+
+            .nav-container, a
+            {
+                width: 70px;
+            }
+
+                a:hover
+                {
+                    width: 200px;
+                    z-index: 1;
+                    border-top: 1px solid rgba(255,255,255,0.1);
+                    border-bottom: 1px solid black;
+                    box-shadow: 0 0 1px 1px black;
+                }
+
+                    a:hover .text
+                    {
+                        display: block;
+                        padding-left: 30%;
+                    }
+        }
+
+        @media only screen and (max-width : 480px)
+        {
+            .nav-container, a
+            {
+                width: 50px;
+            }
+
+            span[class ^= "icon"]
+            {
+                left: 8px;
+            }
+        }
+    </style>
+    <style>
+        .txt
+        {
+            width: 200px;
+            height: 25px;
+        }
+
+        .btn
+        {
+            width: 215px;
+            height: 30px;
+        }
+    </style>
+    <script type="text/javascript">
+        function SetActive(id)
+        {
+            $('liSymmetric, liPublicPrivateKey').removeClass("active");
+            
+           // $("h1, h2, p").addClass("blue");
+            $('liPublicPrivateKey').addClass("active");
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table width="100%" border="1">
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <h1>Welcome To Cryptoghyaphy - A secure World</h1>
+                </td>
+            </tr>
+            <tr>
+                <td width="23%" style="padding-bottom:20px; vertical-align:top;">
+                    <div >
+
+                        <div class="nav-container">
+                            <ul class="nav">
+                                <li id="liSymmetric" runat="server">
+                                    <a href="Symmetric.aspx" onclick="SetActive('liSymmetric');">
+                                        <span class="icon-home"></span>
+                                        <span class="text">Symentric key</span>
+                                    </a>
+                                </li>
+                                <li id="liPublicPrivateKey" runat="server">
+                                    <a href="PublicPrivateKey.aspx" onclick="SetActive('liPublicPrivateKey');">
+                                        <span class="icon-user"></span>
+                                        <span class="text">Public Private Key</span>
+                                    </a>
+                                </li>
+                                <li id="liHash" runat="server">
+                                    <a href="Hash.aspx" >
+                                        <span class="icon-headphones"></span>
+                                        <span class="text">Hash</span>
+                                    </a>
+                                </li>
+                                <li id="liDigitalSignature" runat="server">
+                                    <a href="DigitalSignature.aspx">
+                                        <span class="icon-picture"></span>
+                                        <span class="text">Digital Signature</span>
+                                    </a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+
+                <td width="78%" >
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+    </form>
+</body>
+</html>
